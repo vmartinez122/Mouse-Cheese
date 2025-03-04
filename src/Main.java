@@ -7,7 +7,8 @@ public class Main {
     }
 
     void start(){
-        Board board = new Board();
+        Mouse mouse = new Mouse(0, 0);
+        Board board = new Board(mouse);
         board.showBoard();
     }
 
