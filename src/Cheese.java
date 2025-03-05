@@ -1,3 +1,5 @@
-public class Cheese extends GameCell{
-    EndGamecellType type = EndGamecellType.Cheese ;
+public class Cheese extends EndGameCell{
+    public Cheese(int x, int y) {
+        super(x, y, EndGamecellType.Cheese);
+    }
 }

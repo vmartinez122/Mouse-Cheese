@@ -5,7 +5,8 @@ public class ScoreCell extends GameCell {
     private int score;
     private final int[] SCORES = {10, 20, 30} ;
 
-    public ScoreCell() {
+    public ScoreCell(int x, int y) {
+        super(x,y);
         Random rand = new Random();
         int generate = rand.nextInt(0, SCORES.length);
         this.score = SCORES[generate]; //Asigna un valor aleatorio a la celda

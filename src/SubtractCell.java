@@ -6,9 +6,8 @@ public class SubtractCell extends GameCell implements Questionable {
     private final Integer VALUE = 50;
     private Random rand = new Random();
 
-    public SubtractCell(String content, Random rand) {
-        super(content);
-        this.rand = rand;
+    public SubtractCell(int x, int y) {
+        super("--",x,y);
     }
 
     @Override
