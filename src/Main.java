@@ -1,11 +1,13 @@
-import java.util.ArrayList;
+import model.Mouse;
+
 import java.util.Scanner;
 
 public class Main {
 Mouse mouse = new Mouse(0, 0);
 Board board = new Board(mouse);
 Scanner input = new Scanner(System.in);
-boolean end = false;
+private boolean end = false;
+private int turn;
 
     public static void main(String[] args){
         Main program = new Main();
@@ -13,16 +15,22 @@ boolean end = false;
     }
 
     private void start(){
-        board.showBoard();
+        turn = 1;
         while (!end){
             gameTurn();
         }
     }
 
     private void gameTurn(){
-        String move = input.nextLine();
-        mouse.mouseMove(move);
+        System.out.println("\nTURNO: "+turn);
+        //board.movable();
+        board.boardScan();
         board.showBoard();
+        String move = input.nextLine();
+        //Ask nearby cells ifDiscovered() Board
+        mouse.mouseMove(move);
+        //!! DISCOVERED CELL ACTION !!, needs (x,y from mouse)
+        turn++;
     }
 
 

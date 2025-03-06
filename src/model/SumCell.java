@@ -1,12 +1,14 @@
+package model;
+
 public class SumCell extends GameCell implements Questionable{
 
-    public SumCell(int x, int y) {
-        super("++",x,y);
+    public SumCell() {
+        super.content = "00";
     }
 
-    @Override
     public void setDiscovered() {
-        super.setDiscovered("++");
+        super.setDiscovered();
+        super.content = "++";
         System.out.println(getQuestion());
     }
 

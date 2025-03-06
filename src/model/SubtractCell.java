@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Random;
 
 public class SubtractCell extends GameCell implements Questionable {
@@ -6,15 +8,16 @@ public class SubtractCell extends GameCell implements Questionable {
     private final Integer VALUE = 50;
     private Random rand = new Random();
 
-    public SubtractCell(int x, int y) {
-        super("--",x,y);
+    public SubtractCell() {
+        super.content = "00";
     }
 
-    @Override
     public void setDiscovered() {
-        super.setDiscovered("--");
+        super.setDiscovered();
+        super.content = "--";
         System.out.println(getQuestion());
     }
+
     @Override
     public String getQuestion() {
         return "Inserte un num del "+ MIN_NUM + " al " + MAX_NUM + ". Si no lo acierta, perderá " + VALUE + " puntos.";
