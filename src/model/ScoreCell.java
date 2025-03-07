@@ -3,13 +3,13 @@ package model;
 import java.util.Random;
 
 public class ScoreCell extends GameCell {
-    private int score;
+    private int value;
     private final int[] SCORES = {10, 20, 30} ;
 
     public ScoreCell() {
         Random rand = new Random();
         int generate = rand.nextInt(0, SCORES.length);
-        this.score = SCORES[generate]; //Asigna un valor aleatorio a la celda
+        this.value = SCORES[generate]; //Asigna un valor aleatorio a la celda
         super.content = "00";
         //content = Integer.toString(score);
     }
@@ -20,7 +20,7 @@ public class ScoreCell extends GameCell {
         super.content = "·.";
     }
 
-    public int getScore() {
-        return score;
+    public int getValue() {
+        return value;
     }
 }

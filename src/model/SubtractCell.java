@@ -3,9 +3,10 @@ package model;
 import java.util.Random;
 
 public class SubtractCell extends GameCell implements Questionable {
-    private final Integer MIN_NUM = 1;
-    private final Integer MAX_NUM = 3;
-    private final Integer VALUE = 50;
+    private final int MIN_NUM = 1;
+    private final int MAX_NUM = 3;
+    private final int VALUE = 50;
+    private int value;
     private Random rand = new Random();
 
     public SubtractCell() {
@@ -15,24 +16,35 @@ public class SubtractCell extends GameCell implements Questionable {
     public void setDiscovered() {
         super.setDiscovered();
         super.content = "--";
-        System.out.println(getQuestion());
     }
 
     @Override
     public String getQuestion() {
-        return "Inserte un num del "+ MIN_NUM + " al " + MAX_NUM + ". Si no lo acierta, perderá " + VALUE + " puntos.";
+        return "Insert a number between "+ MIN_NUM + " and " + MAX_NUM + ". Failing will loose you " + VALUE + " points:";
     }
 
     @Override
     public boolean submitAnswer(String answer){
         try {
-            if (Integer.parseInt(answer) == rand.nextInt(MIN_NUM, MAX_NUM+1)){
+            if (Integer.parseInt(answer) == rand.nextInt(MIN_NUM, MAX_NUM+1)) {
+                System.out.println("Correct answer.");
+                value = 0;
                 return true;
             }
-
         }catch (Exception e){
-
+            //Incorrect input
         }
+        System.out.println("Wrong answer. -"+ VALUE+ " points.");
+        value = -VALUE;
         return false;
+    }
+
+    /**
+     * Deveulve el valor que añade esta celda, se podría implementar en la interfaz Questionable o
+     * ser devuelto con submitAnswer.
+     * @return valor de la resta;
+     */
+    public int getValue() {
+        return value;
     }
 }

@@ -2,6 +2,7 @@ package model;
 
 public abstract class GameCell {
     private boolean isDiscovered;
+    private int value;
     protected String content;
 
     public boolean isDiscovered() {
@@ -15,5 +16,10 @@ public abstract class GameCell {
     @Override
     public String toString() {
         return  content;
+    }
+
+    //NEW
+    public int getValue() {
+        return value;
     }
 }
